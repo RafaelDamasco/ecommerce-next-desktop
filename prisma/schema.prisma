@@ -25,7 +25,7 @@ model Product {
   description String
   basePrice Decimal @db.Decimal(8,2) // Price will have 8 digits before the coma and 2 digits after the coma
   discountPercentage Int @default(0)
-  imageUrl String
+  imageUrls String[]
   category Category @relation(fields: [categoryId], references: [id])
   categoryId String
 }
