@@ -10,10 +10,17 @@ import {
 } from "lucide-react";
 import { Button } from "./button";
 import { Card } from "./card";
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTrigger,
+} from "./sheet";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { Separator } from "@radix-ui/react-separator";
+import Link from "next/link";
 
 function Header() {
   const { status, data } = useSession();
@@ -59,7 +66,7 @@ function Header() {
                 variant="outline"
               >
                 <LogIn size={16} />
-                Fazer login
+                Login
               </Button>
             )}
             {status === "authenticated" && (
@@ -69,21 +76,28 @@ function Header() {
                 variant="outline"
               >
                 <LogOut size={16} />
-                Fazer logout
+                Logout
               </Button>
             )}
             <Button className="w-full justify-start gap-2" variant="outline">
               <HomeIcon size={16} />
-              Inicio
+              Home
             </Button>
             <Button className="w-full justify-start gap-2" variant="outline">
               <PercentIcon size={16} />
-              Ofertas
+              Offer
             </Button>
-            <Button className="w-full justify-start gap-2" variant="outline">
-              <ListOrderedIcon size={16} />
-              Catalogo
-            </Button>
+            <SheetClose asChild>
+              <Link href={"/catalog"}>
+                <Button
+                  className="w-full justify-start gap-2"
+                  variant="outline"
+                >
+                  <ListOrderedIcon size={16} />
+                  Catalog
+                </Button>
+              </Link>
+            </SheetClose>
           </div>
         </SheetContent>
       </Sheet>
