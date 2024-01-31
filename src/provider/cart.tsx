@@ -13,6 +13,7 @@ interface ICardContext {
   cartBasePrice: number;
   cartTotalDiscount: number;
   addProductToCart: (product: CartProduct) => void;
+  removeProductFromCart: (productId: string) => void;
   decreaseProductQuantity: (productId: string) => void;
   increaseProductQuantity: (productId: string) => void;
 }
@@ -23,6 +24,7 @@ export const CartContext = createContext<ICardContext>({
   cartBasePrice: 0,
   cartTotalDiscount: 0,
   addProductToCart: () => {},
+  removeProductFromCart: () => {},
   decreaseProductQuantity: () => {},
   increaseProductQuantity: () => {},
 });
@@ -50,6 +52,12 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
       return;
     }
     setProducts((prev) => [...prev, product]);
+  };
+
+  const removeProductFromCart = (productId: string) => {
+    setProducts((prev) =>
+      prev.filter((cartProduct) => cartProduct.id !== productId),
+    );
   };
 
   const decreaseProductQuantity = (productId: string) => {
@@ -88,6 +96,7 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
         addProductToCart,
         decreaseProductQuantity,
         increaseProductQuantity,
+        removeProductFromCart,
         cartTotalPrice: 0,
         cartBasePrice: 0,
         cartTotalDiscount: 0,
