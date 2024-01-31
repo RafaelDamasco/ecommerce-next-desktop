@@ -41,7 +41,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         </p>
       )}
 
-      <div className="mt-4 mt-8 flex items-center gap-2">
+      <div className="mt-8 flex items-center gap-2">
         <Button variant="outline" size="icon" onClick={handleDecreaseQuantity}>
           <ArrowLeftIcon size={16}></ArrowLeftIcon>
         </Button>
