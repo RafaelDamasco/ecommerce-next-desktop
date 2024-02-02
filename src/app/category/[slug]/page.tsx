@@ -4,7 +4,13 @@ import { CATEGORY_ICON } from "@/constants/category-icon";
 import { computeProductTotalPrice } from "@/helpers/product";
 import { prismaClient } from "@/lib/prisma";
 
-const CategoryPage = async ({ params }) => {
+interface CategoryPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+const CategoryPage = async ({ params }: CategoryPageProps) => {
   const category = await prismaClient.category.findFirst({
     where: {
       slug: params.slug,
