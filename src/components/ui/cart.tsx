@@ -48,42 +48,44 @@ const Cart = () => {
         </ScrollArea>
       </div>
 
-      <div className="flex flex-col gap-3">
-        <Separator />
+      {products.length > 0 && (
+        <div className="flex flex-col gap-3">
+          <Separator />
 
-        <div className="flex items-center justify-between text-xs">
-          <p>Subtotal</p>
-          <p>R$ {subtotal.toFixed(2)}</p>
+          <div className="flex items-center justify-between text-xs">
+            <p>Subtotal</p>
+            <p>R$ {subtotal.toFixed(2)}</p>
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between text-xs">
+            <p>Delivery</p>
+            <p>FREE</p>
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between text-xs">
+            <p>Discounts</p>
+            <p>- R${totalDiscount.toFixed(2)}</p>
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between text-xs font-bold">
+            <p>Total</p>
+            <p>- R${total.toFixed(2)}</p>
+          </div>
+
+          <Button
+            className="mt-7 font-bold uppercase"
+            onClick={handleCheckoutClick}
+          >
+            Checkout
+          </Button>
         </div>
-
-        <Separator />
-
-        <div className="flex items-center justify-between text-xs">
-          <p>Delivery</p>
-          <p>FREE</p>
-        </div>
-
-        <Separator />
-
-        <div className="flex items-center justify-between text-xs">
-          <p>Discounts</p>
-          <p>- R${totalDiscount.toFixed(2)}</p>
-        </div>
-
-        <Separator />
-
-        <div className="flex items-center justify-between text-xs font-bold">
-          <p>Total</p>
-          <p>- R${total.toFixed(2)}</p>
-        </div>
-
-        <Button
-          className="mt-7 font-bold uppercase"
-          onClick={handleCheckoutClick}
-        >
-          Checkout
-        </Button>
-      </div>
+      )}
     </div>
   );
 };
