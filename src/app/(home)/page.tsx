@@ -39,7 +39,7 @@ export default async function Home() {
       </div>
 
       <div>
-        <SectionTitle>Ofertas</SectionTitle>
+        <SectionTitle>Deals</SectionTitle>
         <ProductList products={deals} />
       </div>
 
@@ -49,7 +49,7 @@ export default async function Home() {
       />
 
       <div>
-        <SectionTitle>Teclados</SectionTitle>
+        <SectionTitle>Keyboards</SectionTitle>
         <ProductList products={keyboards} />
       </div>
 
@@ -58,7 +58,7 @@ export default async function Home() {
         alt="Ate 55% de desconto em mouses"
       />
       <div>
-        <SectionTitle>Mouses</SectionTitle>
+        <SectionTitle>Mice</SectionTitle>
         <ProductList products={mouses} />
       </div>
     </div>
