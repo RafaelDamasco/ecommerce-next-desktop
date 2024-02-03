@@ -80,14 +80,24 @@ function Header() {
                 Logout
               </Button>
             )}
-            <Button className="w-full justify-start gap-2" variant="outline">
-              <HomeIcon size={16} />
-              Home
-            </Button>
+
+            <SheetClose asChild>
+              <Link href="/">
+                <Button
+                  className="w-full justify-start gap-2"
+                  variant="outline"
+                >
+                  <HomeIcon size={16} />
+                  Home
+                </Button>
+              </Link>
+            </SheetClose>
+
             <Button className="w-full justify-start gap-2" variant="outline">
               <PercentIcon size={16} />
               Offer
             </Button>
+
             <SheetClose asChild>
               <Link href={"/catalog"}>
                 <Button
